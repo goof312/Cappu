@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cappu", "Cappu\Cappu.csproj", "{BB1348D7-6D02-4F17-9AF2-95565ECC50FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB1348D7-6D02-4F17-9AF2-95565ECC50FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB1348D7-6D02-4F17-9AF2-95565ECC50FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB1348D7-6D02-4F17-9AF2-95565ECC50FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB1348D7-6D02-4F17-9AF2-95565ECC50FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF12E8A6-1F27-471E-A831-0BCC4F110ACE}
+	EndGlobalSection
+EndGlobal
