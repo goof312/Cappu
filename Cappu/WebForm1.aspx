@@ -29,50 +29,83 @@
   .col-lg-8 {
       flex-wrap: wrap;
     height: 100%; /* Default height */
-    overflow-y: auto;
+   
   }
 
   .col-6 {
     height: 100vh; /* Full height */
+     overflow-y: auto;
   }
+   #exampleForm2 { /* For button */
+        height: 450px; /* Default height */
+         overflow-y: auto;
+    }
+
+    /* Media query for screens smaller than 600px */
+    @media (max-width: 600px) {
+        #exampleForm2 {
+            height: 300px; /* Adjusted height for smaller screens */
+        }
+    }
+
+    /* Media query for screens between 601px and 1200px */
+    @media (min-width: 601px) and (max-width: 1200px) {
+        #exampleForm2 {
+            height: 250px; /* Adjusted height for medium screens */
+        }
+    }
+
+    /* Media query for screens larger than 1200px */
+    @media (min-width: 1201px) {
+        #exampleForm2 {
+            height: 300px; /* Adjusted height for larger screens */
+        }
+    }
+</style>
+
+
+
+
 
  
-</style>
+
 
 <form id="form1" runat="server">
   <div class="row">
     <div class="col-lg-8 col-6">
       <div class="row scrollable-row">
         <div class="col-lg-4 col-sm-5">
-          <asp:Button ID="Button1" runat="server" Text="Button 1" CssClass="btn btn-primary btn-block btn-lg" />
+          <asp:Button ID="Button1" runat="server" Text="k1" CssClass="btn btn-primary btn-block btn-lg" OnClick="Button1_Click" />
         </div>
         <div class="col-lg-4 col-sm-5">
-          <asp:Button ID="Button2" runat="server" Text="Button 2" CssClass="btn btn-primary btn-block btn-lg" />
+          <asp:Button ID="Button2" runat="server" Text="k2" CssClass="btn btn-primary btn-block btn-lg" OnClick="Button2_Click" />
         </div>
         <div class="col-lg-4 col-sm-5">
-          <asp:Button ID="Button3" runat="server" Text="Button 3" CssClass="btn btn-primary btn-block btn-lg" />
+          <asp:Button ID="Button3" runat="server" Text="K3" CssClass="btn btn-primary btn-block btn-lg" OnClick="Button3_Click" />
         </div>
         <div class="col-lg-4 col-sm-5">
-          <asp:Button ID="Button4" runat="server" Text="Button 4" CssClass="btn btn-primary btn-block btn-lg" />
+          <asp:Button ID="Button4" runat="server" Text="K4" CssClass="btn btn-primary btn-block btn-lg" OnClick="Button4_Click" />
         </div>
         <div class="col-lg-4 col-sm-5">
-          <asp:Button ID="Button5" runat="server" Text="Button 5" CssClass="btn btn-primary btn-block btn-lg" />
+          <asp:Button ID="Button5" runat="server" Text="K5" CssClass="btn btn-primary btn-block btn-lg" OnClick="Button5_Click" />
         </div>
         <div class="col-lg-4 col-sm-5">
-          <asp:Button ID="Button6" runat="server" Text="Button 6" CssClass="btn btn-primary btn-block btn-lg" />
+          <asp:Button ID="Button6" runat="server" Text="K6" CssClass="btn btn-primary btn-block btn-lg" OnClick="Button6_Click" />
         </div>
         <div class="col-lg-4 col-sm-5">
-          <asp:Button ID="Button7" runat="server" Text="Button 7" CssClass="btn btn-primary btn-block btn-lg" />
+          <asp:Button ID="Button7" runat="server" Text="K7" CssClass="btn btn-primary btn-block btn-lg" OnClick="Button7_Click" />
         </div>
         <div class="col-lg-4 col-sm-5">
-          <asp:Button ID="Button8" runat="server" Text="Button 8" CssClass="btn btn-primary btn-block btn-lg" />
+          <asp:Button ID="Button8" runat="server" Text="K8" CssClass="btn btn-primary btn-block btn-lg" OnClick="Button8_Click" />
         </div>
         <div class="col-lg-4 col-sm-5">
-          <asp:Button ID="Button9" runat="server" Text="Button 9" CssClass="btn btn-primary btn-block btn-lg" />
+          <asp:Button ID="Button9" runat="server" Text="K9" CssClass="btn btn-primary btn-block btn-lg" OnClick="Button9_Click" />
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-6">.col-4</div>
+    <div class="col-lg-4 col-6">
+      <input type="text" id="exampleForm2" class="form-control"/>
+    </div>
   </div>
 </form>
 
