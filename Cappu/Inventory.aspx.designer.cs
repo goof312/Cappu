@@ -11,7 +11,7 @@ namespace Cappu
 {
 
 
-    public partial class AdminPage
+    public partial class Inventory
     {
 
         /// <summary>
