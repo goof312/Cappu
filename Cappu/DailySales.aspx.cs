@@ -30,11 +30,19 @@ namespace Cappu
             using (Order order = new Order())
             {
                 SqlDataReader reader = order.ExecuteReader("SELECT SUM(total) as TotalSum FROM orders INNER JOIN transactions ON orders.order_id = transactions.order_id WHERE order_date >= CONVERT(date, GETDATE())");
-                if (reader.Read())
+                try
                 {
-                    decimal totalSum = Convert.ToDecimal(reader["TotalSum"]);
-                    TextBox1.Text = totalSum.ToString();
+                    if (reader.Read())
+                    {
+                        decimal totalSum = Convert.ToDecimal(reader["TotalSum"]);
+                        TextBox1.Text = totalSum.ToString();
+                    }
                 }
+                catch
+                {
+                    TextBox1.Text = "No Sales Yet";
+                }
+               
             }
         }
     }
