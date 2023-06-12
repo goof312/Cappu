@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Web;
 using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.IO;
+
 namespace Cappu
 {
     public partial class Pos : System.Web.UI.Page
@@ -30,7 +35,7 @@ namespace Cappu
                 int total = int.Parse(hiddenTotal.Value);
 
                 Dictionary<string, int[]> data = new Dictionary<string, int[]>();
-                
+
 
                 // Convert dictionary to JSON string
                 string jsonData = JsonConvert.SerializeObject(data);
@@ -64,7 +69,7 @@ namespace Cappu
             addTOgridview(data);
         }
 
-       
+
 
 
 
@@ -177,7 +182,7 @@ namespace Cappu
 
             else
             {
-                data["S1"] = new int[] { 1, 45}; // Add a new entry
+                data["S1"] = new int[] { 1, 45 }; // Add a new entry
             }
 
 
@@ -255,10 +260,43 @@ namespace Cappu
         protected void Submit_Click(object sender, EventArgs e)
         {
 
+
+            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            randomGenerator rand = new randomGenerator();
+
+            string randum = rand.GenerateRandomOrderId();
+
+            using (Order order = new Order())
+            {
+                string query = string.Format("INSERT INTO orders values('{0}','{1}')", randum, DateTime.Now.ToString("MM-dd-yy"));
+                 order.ExecuteNonQuery(query);
+            }
+
+
+            foreach (KeyValuePair<string, int[]> pair in data)
+            {
+                string proName = pair.Key;
+                int[] value = pair.Value;
+                int quantity = value[0];
+                int total = value[1];
+                
+
+                using (Order order = new Order())
+                {
+                  
+                   string querytrans = string.Format("INSERT INTO transactions VALUES('{0}','{1}',{2},{3})", randum, proName, quantity, total);
+                    order.ExecuteNonQuery(querytrans);
+                }
+            }
+
+
+            
+
         }
     }
-
- 
-         
-
 }
+
+
+
+
+    
