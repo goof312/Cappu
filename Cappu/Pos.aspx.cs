@@ -38,10 +38,7 @@ namespace Cappu
                 // Store the JSON data in the hidden field
                 hiddenData.Value = jsonData;
 
-                var dataSource = data.Select(kvp => new GridData { Key = kvp.Key, Quantity = kvp.Value[0], Total = kvp.Value[1] });
-
-                gridView.DataSource = dataSource;
-                gridView.DataBind();
+                addTOgridview(data);
             }
         }
 
@@ -64,9 +61,7 @@ namespace Cappu
             }
             string jsonData = JsonConvert.SerializeObject(data);
             hiddenData.Value = jsonData;
-            var dataSource = data.Select(kvp => new GridData { Key = kvp.Key, Quantity = kvp.Value[0], Total = kvp.Value[1] });
-            gridView.DataSource = dataSource;
-            gridView.DataBind();
+            addTOgridview(data);
         }
 
        
@@ -92,9 +87,9 @@ namespace Cappu
 
             string jsonData = JsonConvert.SerializeObject(data);
             hiddenData.Value = jsonData;
-            var dataSource = data.Select(kvp => new GridData { Key = kvp.Key, Quantity = kvp.Value[0], Total = kvp.Value[1] });
-            gridView.DataSource = dataSource;
-            gridView.DataBind();
+            addTOgridview(data);
+
+
 
         }
 
@@ -106,11 +101,43 @@ namespace Cappu
         protected void K4_Click(object sender, EventArgs e)
         {
             AddTotal(59);
+            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            if (data.ContainsKey("k4"))
+            {
+                data["k4"][0] = data["k4"][0] + 1;
+                data["k4"][1] = data["k4"][1] + 59;
+            }
+
+            else
+            {
+                data["k4"] = new int[] { 1, 59 }; // Add a new entry
+            }
+
+
+            string jsonData = JsonConvert.SerializeObject(data);
+            hiddenData.Value = jsonData;
+            addTOgridview(data);
         }
 
         protected void K5_Click(object sender, EventArgs e)
         {
             AddTotal(59);
+            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            if (data.ContainsKey("k5"))
+            {
+                data["k5"][0] = data["k5"][0] + 1;
+                data["k5"][1] = data["k5"][1] + 59;
+            }
+
+            else
+            {
+                data["k5"] = new int[] { 1, 59 }; // Add a new entry
+            }
+
+
+            string jsonData = JsonConvert.SerializeObject(data);
+            hiddenData.Value = jsonData;
+            addTOgridview(data);
         }
 
         protected void K6_Click(object sender, EventArgs e)
@@ -138,14 +165,46 @@ namespace Cappu
             AddTotal(59);
         }
 
-        protected void K11_Click(object sender, EventArgs e)
+        protected void K11_Click(object sender, EventArgs e)//S1
         {
             AddTotal(45);
+            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            if (data.ContainsKey("S1"))
+            {
+                data["S1"][0] = data["S1"][0] + 1;
+                data["S1"][1] = data["S1"][1] + 45;
+            }
+
+            else
+            {
+                data["S1"] = new int[] { 1, 45}; // Add a new entry
+            }
+
+
+            string jsonData = JsonConvert.SerializeObject(data);
+            hiddenData.Value = jsonData;
+            addTOgridview(data);
         }
 
-        protected void K12_Click(object sender, EventArgs e)
+        protected void K12_Click(object sender, EventArgs e)//S2
         {
             AddTotal(55);
+            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            if (data.ContainsKey("S2"))
+            {
+                data["S2"][0] = data["S2"][0] + 1;
+                data["S2"][1] = data["S2"][1] + 49;
+            }
+
+            else
+            {
+                data["S2"] = new int[] { 1, 49 }; // Add a new entry
+            }
+
+
+            string jsonData = JsonConvert.SerializeObject(data);
+            hiddenData.Value = jsonData;
+            addTOgridview(data);
         }
 
 
@@ -181,7 +240,22 @@ namespace Cappu
             inputDisabledEx2.Text = "Total: " + total.ToString();
         }
 
-       
+
+
+        public void addTOgridview(Dictionary<string, int[]> data = null)
+        {
+            if (data != null)
+            {
+                var dataSource = data.Select(kvp => new GridData { Key = kvp.Key, Quantity = kvp.Value[0], Total = kvp.Value[1] });
+                gridView.DataSource = dataSource;
+                gridView.DataBind();
+            }
+        }
+
+        protected void Submit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
  

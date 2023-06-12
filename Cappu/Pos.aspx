@@ -124,40 +124,40 @@
                      <div class="scrollable-row">
                        <div class="row">
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button1" runat="server" Text="K1" CssClass="btn btn-primary btn-block btn-lg" OnClick="K1_Click" />
+                           <asp:Button ID="Button1" runat="server" Text="K1" CssClass="btn btn-primary btn-block btn-lg" OnClick="K1_Click" /> <!-- k1 -->
                          </div>
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button2" runat="server" Text="K2" CssClass="btn btn-primary btn-block btn-lg" OnClick="K2_Click" />
+                           <asp:Button ID="Button2" runat="server" Text="K2" CssClass="btn btn-primary btn-block btn-lg" OnClick="K2_Click" /><!-- k2 -->
                          </div>
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button3" runat="server" Text="K3" CssClass="btn btn-primary btn-block btn-lg" OnClick="K3_Click" />
+                           <asp:Button ID="Button3" runat="server" Text="K3" CssClass="btn btn-primary btn-block btn-lg" OnClick="K3_Click" Enabled="false" /><!-- k3 -->
                          </div>
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button4" runat="server" Text="K4" CssClass="btn btn-primary btn-block btn-lg" OnClick="K4_Click" />
+                           <asp:Button ID="Button4" runat="server" Text="K4" CssClass="btn btn-primary btn-block btn-lg" OnClick="K4_Click" /><!-- k4 -->
                          </div>
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button5" runat="server" Text="K5" CssClass="btn btn-primary btn-block btn-lg" OnClick="K5_Click" />
+                           <asp:Button ID="Button5" runat="server" Text="K5" CssClass="btn btn-primary btn-block btn-lg" OnClick="K5_Click" /><!-- k5 -->
                          </div>
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button6" runat="server" Text="K6" CssClass="btn btn-primary btn-block btn-lg" OnClick="K6_Click"  />
+                           <asp:Button ID="Button6" runat="server" Text="K6" CssClass="btn btn-primary btn-block btn-lg" OnClick="K6_Click" Enabled="false" /><!-- k6 -->
                          </div>
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button7" runat="server" Text="K7" CssClass="btn btn-primary btn-block btn-lg" OnClick="K7_Click" />
+                           <asp:Button ID="Button7" runat="server" Text="K7" CssClass="btn btn-primary btn-block btn-lg" OnClick="K7_Click" Enabled="false"/><!-- k7 -->
                          </div>
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button8" runat="server" Text="K8" CssClass="btn btn-primary btn-block btn-lg" OnClick="K8_Click" />
+                           <asp:Button ID="Button8" runat="server" Text="K8" CssClass="btn btn-primary btn-block btn-lg" OnClick="K8_Click" Enabled="false"/><!-- k8 -->
                          </div>
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button9" runat="server" Text="K9" CssClass="btn btn-primary btn-block btn-lg" OnClick="K9_Click" />
+                           <asp:Button ID="Button9" runat="server" Text="K9" CssClass="btn btn-primary btn-block btn-lg" OnClick="K9_Click" Enabled="false"/><!-- k9 -->
                          </div>
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button10" runat="server" Text="K10" CssClass="btn btn-primary btn-block btn-lg" OnClick="K10_Click" />
+                           <asp:Button ID="Button10" runat="server" Text="K10" CssClass="btn btn-primary btn-block btn-lg" OnClick="K10_Click" Enabled="false"/><!-- k10 -->
                          </div>
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button11" runat="server" Text="K11" CssClass="btn btn-primary btn-block btn-lg" OnClick="K11_Click" />
+                           <asp:Button ID="Button11" runat="server" Text="S1" CssClass="btn btn-primary btn-block btn-lg" OnClick="K11_Click" /><!-- s1 -->
                          </div>
                          <div class="col-lg-6 col-md-6 col-12">
-                           <asp:Button ID="Button12" runat="server" Text="K12" CssClass="btn btn-primary btn-block btn-lg" OnClick="K12_Click" />
+                           <asp:Button ID="Button12" runat="server" Text="S2" CssClass="btn btn-primary btn-block btn-lg" OnClick="K12_Click" /><!-- s2 -->
                          </div>
                        </div>
                      </div>
@@ -180,7 +180,9 @@
                     <!-- Total -->
                   <asp:TextBox ID="inputDisabledEx2" runat="server" CssClass="form-control" Text="TOTAL: " Enabled="false" ></asp:TextBox>
 
-
+                    <div class="col-lg-6 col-md-6 col-12">
+                           <asp:Button ID="Button14" runat="server" Text="SUBMIT" CssClass="btn btn-primary btn-block btn-lg" OnClick="Submit_Click" />
+                     </div>
                     <div class="col-lg-6 col-md-6 col-12">
                            <asp:Button ID="Button13" runat="server" Text="CANCEL" CssClass="btn btn-primary btn-block btn-lg" OnClick="Cancel_Click" />
                      </div>
