@@ -198,6 +198,7 @@
     <Content Include="AdminPage.aspx" />
     <Content Include="Inventory.aspx" />
     <Content Include="DailySales.aspx" />
+    <Content Include="CompareSales.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
@@ -211,6 +212,15 @@
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompareSales.aspx.cs">
+      <DependentUpon>CompareSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompareSales.aspx.designer.cs">
+      <DependentUpon>CompareSales.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pos.aspx.cs">
