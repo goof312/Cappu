@@ -73,6 +73,7 @@
     <Content Include="css\mdb.rtl.min.css" />
     <Content Include="img\mdb-favicon.ico" />
     <Content Include="js\mdb.min.js" />
+    <Content Include="Pos.aspx" />
     <Content Include="src\js\bootstrap\dist\alert.js" />
     <Content Include="src\js\bootstrap\dist\base-component.js" />
     <Content Include="src\js\bootstrap\dist\button.js" />
@@ -210,10 +211,14 @@
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Pos.aspx.cs">
+      <DependentUpon>Pos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Pos.aspx.designer.cs">
+      <DependentUpon>Pos.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminPage.aspx.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
@@ -236,6 +241,7 @@
     <Compile Include="DailySales.aspx.designer.cs">
       <DependentUpon>DailySales.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\mdb.dark.min.css.map" />
