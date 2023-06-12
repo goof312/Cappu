@@ -2,11 +2,7 @@
 using System.Data;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.Script.Serialization;
-using System.Diagnostics;
+using Newtonsoft.Json;
 namespace Cappu
 {
     public partial class Pos : System.Web.UI.Page
@@ -33,20 +29,14 @@ namespace Cappu
                 // Retrieve the total value from the hidden field
                 int total = int.Parse(hiddenTotal.Value);
 
-                Dictionary<string, int[]> data;
+                Dictionary<string, int[]> data = new Dictionary<string, int[]>();
+                
 
-                if (Cache["MyData"] != null)
-                {
-                    data = (Dictionary<string, int[]>)Cache["MyData"];
-                }
-                else
-                {
-                    // Retrieve the data from the persistent storage (e.g., database)
-                    data = FetchData();
+                // Convert dictionary to JSON string
+                string jsonData = JsonConvert.SerializeObject(data);
 
-                    // Cache the data for future use
-                    Cache["MyData"] = data;
-                }
+                // Store the JSON data in the hidden field
+                hiddenData.Value = jsonData;
 
                 var dataSource = data.Select(kvp => new GridData { Key = kvp.Key, Quantity = kvp.Value[0], Total = kvp.Value[1] });
 
@@ -58,45 +48,53 @@ namespace Cappu
         protected void K1_Click(object sender, EventArgs e)
         {
             AddTotal(39);
-            FetchData();
-                
+
+            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
 
 
-          
+            if (data.ContainsKey("k1"))
+            {
+                data["k1"][0] = data["k1"][0] + 1;
+                data["k1"][1] = data["k1"][1] + 39;
+            }
+
+            else
+            {
+                data["k1"] = new int[] { 1, 39 }; // Add a new entry
+            }
+            string jsonData = JsonConvert.SerializeObject(data);
+            hiddenData.Value = jsonData;
+            var dataSource = data.Select(kvp => new GridData { Key = kvp.Key, Quantity = kvp.Value[0], Total = kvp.Value[1] });
+            gridView.DataSource = dataSource;
+            gridView.DataBind();
         }
 
-        private Dictionary<string, int[]> FetchData(string  key ,int count, int price)
-        {
-            // Implement the logic to fetch the data from the persistent storage or any other source
-            // and return it as a dictionary
-
-            // Example:
-            Dictionary<string, int[]> data = new Dictionary<string, int[]>();
-            
-
-            return data;
-        }
-
-        private Dictionary<string, int[]> FetchData()
-        {
-            // Implement the logic to fetch the data from the persistent storage or any other source
-            // and return it as a dictionary
-
-            // Example:
-            Dictionary<string, int[]> data = new Dictionary<string, int[]>();
-            data.Add("k1", new int[] { 1, 32 });
-
-            return data;
-        }
-
+       
 
 
 
 
         protected void K2_Click(object sender, EventArgs e)
         {
-            AddTotal(39);
+            AddTotal(49);
+            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            if (data.ContainsKey("k2"))
+            {
+                data["k2"][0] = data["k2"][0] + 1;
+                data["k2"][1] = data["k2"][1] + 49;
+            }
 
+            else
+            {
+                data["k2"] = new int[] { 1, 49 }; // Add a new entry
+            }
+
+
+            string jsonData = JsonConvert.SerializeObject(data);
+            hiddenData.Value = jsonData;
+            var dataSource = data.Select(kvp => new GridData { Key = kvp.Key, Quantity = kvp.Value[0], Total = kvp.Value[1] });
+            gridView.DataSource = dataSource;
+            gridView.DataBind();
 
         }
 
@@ -157,22 +155,16 @@ namespace Cappu
         {
             hiddenTotal.Value = "0";
             inputDisabledEx2.Text = "Total: " + hiddenTotal.Value;
+
+            Dictionary<string, int[]> data = new Dictionary<string, int[]>();
+            string jsonData = JsonConvert.SerializeObject(data);
+            hiddenData.Value = jsonData;
+
+
+            var dataSource = data.Select(kvp => new GridData { Key = kvp.Key, Quantity = kvp.Value[0], Total = kvp.Value[1] });
+            gridView.DataSource = dataSource;
+            gridView.DataBind();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         public void AddTotal(int number)
