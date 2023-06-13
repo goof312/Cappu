@@ -74,6 +74,7 @@
     <Content Include="css\mdb.dark.rtl.min.css" />
     <Content Include="css\mdb.min.css" />
     <Content Include="css\mdb.rtl.min.css" />
+    <Content Include="history.aspx" />
     <Content Include="img\kappu.png" />
     <Content Include="img\mdb-favicon.ico" />
     <Content Include="js\mdb.min.js" />
@@ -207,6 +208,13 @@
     <Compile Include="Connection.cs" />
     <Compile Include="Decryptiopn.cs" />
     <Compile Include="Encryption.cs" />
+    <Compile Include="history.aspx.cs">
+      <DependentUpon>history.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="history.aspx.designer.cs">
+      <DependentUpon>history.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

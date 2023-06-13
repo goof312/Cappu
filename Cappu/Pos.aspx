@@ -24,18 +24,7 @@
    <style>
 
 
-       .keypad-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .keypad-container button {
-            width: 20%;
-            height: 60px;
-            margin: 10px;
-            font-size: 18px;
-        }
+       
   [class*="col"] {
     padding: 1rem;
 
@@ -212,7 +201,9 @@
                            <asp:Button ID="Button13" runat="server" Text="CANCEL" CssClass="btn btn-primary btn-block btn-lg" OnClick="Cancel_Click" />
                      </div>
 
-                    
+                    <div class="col-lg-6 col-md-6 col-12">
+                           <asp:Button ID="Button15" runat="server" Text="HISTORY" CssClass="btn btn-primary btn-block btn-lg" OnClick="History_Click" />
+                     </div>
                 </div>
             </div>
         </div>

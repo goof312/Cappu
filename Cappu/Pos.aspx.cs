@@ -272,43 +272,51 @@ namespace Cappu
             Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
             randomGenerator rand = new randomGenerator();
 
-
-            if (data.Count == 0)
+           
+                if (data.Count == 0)
+                {
+                    Response.Write("<script>alert('No values to submit');</script>");
+                }
+            else
             {
-                // Dictionary is empty
-                // Add your logic here for handling an empty dictionary
-            }
-            string randum = rand.GenerateRandomOrderId();
-
-            using (Order order = new Order())
-            {
-                string query = string.Format("INSERT INTO orders values('{0}','{1}')", randum, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-);
-                 order.ExecuteNonQuery(query);
-            }
-
-
-            foreach (KeyValuePair<string, int[]> pair in data)
-            {
-                string proName = pair.Key;
-                int[] value = pair.Value;
-                int quantity = value[0];
-                int total = value[1];
-                
+                string randum = rand.GenerateRandomOrderId();
 
                 using (Order order = new Order())
                 {
-                  
-                   string querytrans = string.Format("INSERT INTO transactions VALUES('{0}','{1}',{2},{3})", randum, proName, quantity, total);
-                    order.ExecuteNonQuery(querytrans);
+                    string query = string.Format("INSERT INTO orders values('{0}','{1}')", randum, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                    order.ExecuteNonQuery(query);
+                }
+
+
+                foreach (KeyValuePair<string, int[]> pair in data)
+                {
+                    string proName = pair.Key;
+                    int[] value = pair.Value;
+                    int quantity = value[0];
+                    int total = value[1];
+
+
+                    using (Order order = new Order())
+                    {
+
+                        string querytrans = string.Format("INSERT INTO transactions VALUES('{0}','{1}',{2},{3})", randum, proName, quantity, total);
+                        order.ExecuteNonQuery(querytrans);
+                    }
                 }
             }
+                 
+         
+          
 
             cancel();
             
 
         }
-       
+
+        protected void History_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/history.aspx");
+;        }
     }
 }
 
