@@ -47,6 +47,9 @@ namespace Cappu
             }
         }
 
+
+
+
         protected void K1_Click(object sender, EventArgs e)
         {
             AddTotal(39);
@@ -217,6 +220,11 @@ namespace Cappu
 
         protected void Cancel_Click(object sender, EventArgs e)
         {
+            cancel();
+        }
+
+        public void cancel()
+        {
             hiddenTotal.Value = "0";
             inputDisabledEx2.Text = "Total: " + hiddenTotal.Value;
 
@@ -229,7 +237,6 @@ namespace Cappu
             gridView.DataSource = dataSource;
             gridView.DataBind();
         }
-
 
         public void AddTotal(int number)
         {
@@ -245,6 +252,7 @@ namespace Cappu
             inputDisabledEx2.Text = "Total: " + total.ToString();
         }
 
+        
 
 
         public void addTOgridview(Dictionary<string, int[]> data = null)
@@ -264,11 +272,18 @@ namespace Cappu
             Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
             randomGenerator rand = new randomGenerator();
 
+
+            if (data.Count == 0)
+            {
+                // Dictionary is empty
+                // Add your logic here for handling an empty dictionary
+            }
             string randum = rand.GenerateRandomOrderId();
 
             using (Order order = new Order())
             {
-                string query = string.Format("INSERT INTO orders values('{0}','{1}')", randum, DateTime.Now.ToString("MM-dd-yy"));
+                string query = string.Format("INSERT INTO orders values('{0}','{1}')", randum, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+);
                  order.ExecuteNonQuery(query);
             }
 
@@ -289,10 +304,11 @@ namespace Cappu
                 }
             }
 
-
+            cancel();
             
 
         }
+       
     }
 }
 

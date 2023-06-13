@@ -22,15 +22,29 @@
       crossorigin="anonymous"
     />
    <style>
+
+
+       .keypad-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .keypad-container button {
+            width: 20%;
+            height: 60px;
+            margin: 10px;
+            font-size: 18px;
+        }
   [class*="col"] {
     padding: 1rem;
-    background-color: #33b5e5;
+
     border: 2px solid #fff;
-    color: #fff;
+
   }
 
   .child {
-    background-color: #2041d3;
+
   }
 
   .col-lg-8 {
@@ -161,11 +175,22 @@
                          </div>
                        </div>
                      </div>
+
+
+
+
                 </div>
+
+
+
+
+
+
+
                 <div class="col-lg-4 col-md-6 col-6" style="overflow: hidden;">
                     <!--<asp:TextBox ID="exampleForm2" runat="server" CssClass="form-control no-resize no-drag" TextMode="MultiLine" Enabled="false"></asp:TextBox>-->
-                    <div style="height: 300px; overflow-y: auto;">
- <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered bg-white small">
+                    <div style="height: 300px; overflow-y: auto; background-color: ghostwhite; border: 1px solid black; ">
+ <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered bg-ghostwhite small">
     <Columns>
         <asp:BoundField DataField="Key" HeaderText="Product Name" ItemStyle-CssClass="text-center" />
         <asp:BoundField DataField="Quantity" HeaderText="Quantity" ItemStyle-CssClass="text-center" />
