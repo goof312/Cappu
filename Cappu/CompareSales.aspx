@@ -39,8 +39,16 @@
    
             <div class="justify-content-center mt-5 " style="background-color: lightblue">
                 <div class="text-center">
-                       <asp:Label ID="Label1" runat="server" Text="Total"></asp:Label>
+          <asp:Label ID="Label1" runat="server" Text="Total"></asp:Label>
                     <asp:TextBox ID="TextBox3" runat="server" Enabled="false" CssClass="text-center"></asp:TextBox>
+                </div>
+                <div class="text-center">
+                 <asp:Label ID="Label2" runat="server" Text="Total"></asp:Label>
+                    <asp:TextBox ID="TextBox4" runat="server" Enabled="false" CssClass="text-center"></asp:TextBox>
+                </div>
+                 <div class="text-center">
+                 <asp:Label ID="Label3" runat="server" Text="Difference"></asp:Label>
+                    <asp:TextBox ID="TextBox5" runat="server" Enabled="false" CssClass="text-center"></asp:TextBox>
                 </div>
               
                  
@@ -56,8 +64,7 @@
    
             <div class="justify-content-center mt-5 " style="background-color: lightblue">
                 <div  class="text-center">
-                     <asp:Label ID="Label2" runat="server" Text="Total"></asp:Label>
-                    <asp:TextBox ID="TextBox4" runat="server" Enabled="false" CssClass="text-center"></asp:TextBox>
+                   
   
                 </div>
                    

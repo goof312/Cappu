@@ -32,9 +32,10 @@ namespace Cappu
             show_data(query, GridView2);
 
             query = string.Format("SELECT SUM(total) as TotalSum FROM orders INNER JOIN transactions ON orders.order_id = transactions.order_id WHERE order_date = '{0}'", date1.ToString("MM-dd-yy"));
-            total(query, TextBox3);
+            decimal tot = total(query, TextBox3);
             query= string.Format("SELECT SUM(total) as TotalSum FROM orders INNER JOIN transactions ON orders.order_id = transactions.order_id WHERE order_date = '{0}'", date2.ToString("MM-dd-yy"));
-            total(query, TextBox4);
+            decimal tot1 = total(query, TextBox4);
+            TextBox5.Text = (tot - tot1).ToString();
 
 
         }
@@ -59,7 +60,7 @@ namespace Cappu
             }
         }
 
-        protected void total(string query, TextBox textbox)
+        protected decimal total(string query, TextBox textbox)
         {
             using (Order order = new Order())
             {
@@ -70,11 +71,14 @@ namespace Cappu
                     {
                         decimal totalSum = Convert.ToDecimal(reader["TotalSum"]);
                         textbox.Text = totalSum.ToString();
+                        return totalSum;
                     }
+                    return 0;
                 }
                 catch
                 {
                     textbox.Text = "No Sales Yet";
+                    return 0;
                 }
 
             }
