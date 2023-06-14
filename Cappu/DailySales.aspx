@@ -11,24 +11,53 @@
                 border: 1px solid black;
                 padding: 8px;
             }
+
+        .center{
+            text-align:right;
+        }
+
+        .left{
+            text-align:left;
+        }
+  
+
+        @media (max-width: 767px){
+            .center{
+                text-align:center;
+            
+        }
+        }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
         <div class="justify-content-center mt-5" style="background-color: lightblue;">
             <div class="row">
-                <div class="col-4 text-center ">
-                    <label for="TextBox2" style="font-size:40px">Search</label>
-                </div>
+         
 
 
-                <div class="col-4 text-center">
-                    <asp:TextBox ID="TextBox2" runat="server" TextMode="Date" CssClass="form-control text-center" Height="100" BackColor="Gray" Font-Size="40"></asp:TextBox>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-3 center">
+                    <asp:TextBox ID="TextBox2" runat="server" TextMode="Date"  Height="50"  Font-Size="25"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="TextBox2" ForeColor="Red" ></asp:RequiredFieldValidator>
                 </div>
-                <div class="col-4 text-center ">
-                      <asp:Button ID="Button1" runat="server" Text="Search" OnClick="search" BackColor="Red" Font-Size="40"/>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-3 center left">
+                      <asp:Button ID="Button1" runat="server" Text="Search" OnClick="search" BackColor="Red" Font-Size="25"/>
                 </div>
+                   <div class="col-lg-3 col-md-6 col-sm-12  p-3 center ">
+                       <asp:DropDownList ID="filterSearch" runat="server" Height="50"  Font-Size="25">
+                           <asp:ListItem Selected="True" Value="1">1 day</asp:ListItem>
+                           <asp:ListItem Value="3">3 days</asp:ListItem>
+                           <asp:ListItem Value="7">1 week</asp:ListItem>
+                           <asp:ListItem Value="30">1 month</asp:ListItem>
+                           <asp:ListItem Value="90">3 months</asp:ListItem>
+                           <asp:ListItem Value="180">6 months</asp:ListItem>
+                           <asp:ListItem Value="365">1 year</asp:ListItem>
+                       </asp:DropDownList>
+                </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 p-3 center left" >
+                      <asp:Button ID="Button2" runat="server" Text="Filter" BackColor="Red" Font-Size="25" OnClick="filter" />
+                      </div>
                
             </div>
         </div>
