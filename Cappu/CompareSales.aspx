@@ -19,16 +19,16 @@
         <div class="m-5">
             <div class="row justify-content-center">
                 <div class="col-lg-3 col-md-12 text-center mb-3">
-                    <asp:TextBox ID="TextBox1" runat="server" TextMode="Date" CssClass="text-center"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" TextMode="Date" CssClass="text-center"  Height="50"  Font-Size="25"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="TextBox1" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
-                <div class="col-lg-3 col-md-12 text-center mb-3"><span class="m-5">Compare Sales</span></div>
+                <div class="col-lg-3 col-md-12 text-center mb-3 fs-5" ><span class="m-5" >Compare Sales</span></div>
                 <div class="col-lg-3 col-md-12 text-center mb-3">
-                    <asp:TextBox ID="TextBox2" runat="server" TextMode="Date" CssClass="text-center"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" TextMode="Date" CssClass="text-center"  Height="50"  Font-Size="25"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-lg-3 col-md-12 text-center mb-3">
-                    <asp:Button ID="Button1" runat="server" Text="Compare" OnClick="information_show" BackColor="Red" />
+                    <asp:Button ID="Button1" runat="server" Text="Compare" OnClick="information_show" BackColor="Red" Font-Size="25" />
                 </div>
             </div>
 
