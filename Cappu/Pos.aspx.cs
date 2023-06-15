@@ -12,12 +12,11 @@ namespace Cappu
 {
     public partial class Pos : System.Web.UI.Page
     {
-
         public class GridData
         {
             public string Key { get; set; }
-            public int Quantity { get; set; }
-            public int Total { get; set; }
+            public double Quantity { get; set; }
+            public double Total { get; set; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -32,10 +31,9 @@ namespace Cappu
                 }
 
                 // Retrieve the total value from the hidden field
-                int total = int.Parse(hiddenTotal.Value);
+                double total = double.Parse(hiddenTotal.Value);
 
-                Dictionary<string, int[]> data = new Dictionary<string, int[]>();
-
+                Dictionary<string, double[]> data = new Dictionary<string, double[]>();
 
                 // Convert dictionary to JSON string
                 string jsonData = JsonConvert.SerializeObject(data);
@@ -47,58 +45,44 @@ namespace Cappu
             }
         }
 
-
-
-
         protected void K1_Click(object sender, EventArgs e)
         {
             AddTotal(39);
 
-            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
-
+            Dictionary<string, double[]> data = JsonConvert.DeserializeObject<Dictionary<string, double[]>>(hiddenData.Value);
 
             if (data.ContainsKey("k1"))
             {
                 data["k1"][0] = data["k1"][0] + 1;
                 data["k1"][1] = data["k1"][1] + 39;
             }
-
             else
             {
-                data["k1"] = new int[] { 1, 39 }; // Add a new entry
+                data["k1"] = new double[] { 1, 39 }; // Add a new entry
             }
+
             string jsonData = JsonConvert.SerializeObject(data);
             hiddenData.Value = jsonData;
             addTOgridview(data);
         }
 
-
-
-
-
-
         protected void K2_Click(object sender, EventArgs e)
         {
             AddTotal(49);
-            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            Dictionary<string, double[]> data = JsonConvert.DeserializeObject<Dictionary<string, double[]>>(hiddenData.Value);
             if (data.ContainsKey("k2"))
             {
                 data["k2"][0] = data["k2"][0] + 1;
                 data["k2"][1] = data["k2"][1] + 49;
             }
-
             else
             {
-                data["k2"] = new int[] { 1, 49 }; // Add a new entry
+                data["k2"] = new double[] { 1, 49 }; // Add a new entry
             }
-
 
             string jsonData = JsonConvert.SerializeObject(data);
             hiddenData.Value = jsonData;
             addTOgridview(data);
-
-
-
         }
 
         protected void K3_Click(object sender, EventArgs e)
@@ -109,18 +93,16 @@ namespace Cappu
         protected void K4_Click(object sender, EventArgs e)
         {
             AddTotal(59);
-            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            Dictionary<string, double[]> data = JsonConvert.DeserializeObject<Dictionary<string, double[]>>(hiddenData.Value);
             if (data.ContainsKey("k4"))
             {
                 data["k4"][0] = data["k4"][0] + 1;
                 data["k4"][1] = data["k4"][1] + 59;
             }
-
             else
             {
-                data["k4"] = new int[] { 1, 59 }; // Add a new entry
+                data["k4"] = new double[] { 1, 59 }; // Add a new entry
             }
-
 
             string jsonData = JsonConvert.SerializeObject(data);
             hiddenData.Value = jsonData;
@@ -130,18 +112,16 @@ namespace Cappu
         protected void K5_Click(object sender, EventArgs e)
         {
             AddTotal(59);
-            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            Dictionary<string, double[]> data = JsonConvert.DeserializeObject<Dictionary<string, double[]>>(hiddenData.Value);
             if (data.ContainsKey("k5"))
             {
                 data["k5"][0] = data["k5"][0] + 1;
                 data["k5"][1] = data["k5"][1] + 59;
             }
-
             else
             {
-                data["k5"] = new int[] { 1, 59 }; // Add a new entry
+                data["k5"] = new double[] { 1, 59 }; // Add a new entry
             }
-
 
             string jsonData = JsonConvert.SerializeObject(data);
             hiddenData.Value = jsonData;
@@ -173,50 +153,43 @@ namespace Cappu
             AddTotal(59);
         }
 
-        protected void K11_Click(object sender, EventArgs e)//S1
+        protected void K11_Click(object sender, EventArgs e) // S1
         {
             AddTotal(45);
-            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            Dictionary<string, double[]> data = JsonConvert.DeserializeObject<Dictionary<string, double[]>>(hiddenData.Value);
             if (data.ContainsKey("S1"))
             {
                 data["S1"][0] = data["S1"][0] + 1;
                 data["S1"][1] = data["S1"][1] + 45;
             }
-
             else
             {
-                data["S1"] = new int[] { 1, 45 }; // Add a new entry
+                data["S1"] = new double[] { 1, 45 }; // Add a new entry
             }
-
 
             string jsonData = JsonConvert.SerializeObject(data);
             hiddenData.Value = jsonData;
             addTOgridview(data);
         }
 
-        protected void K12_Click(object sender, EventArgs e)//S2
+        protected void K12_Click(object sender, EventArgs e) // S2
         {
             AddTotal(55);
-            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            Dictionary<string, double[]> data = JsonConvert.DeserializeObject<Dictionary<string, double[]>>(hiddenData.Value);
             if (data.ContainsKey("S2"))
             {
                 data["S2"][0] = data["S2"][0] + 1;
                 data["S2"][1] = data["S2"][1] + 49;
             }
-
             else
             {
-                data["S2"] = new int[] { 1, 49 }; // Add a new entry
+                data["S2"] = new double[] { 1, 49 }; // Add a new entry
             }
-
 
             string jsonData = JsonConvert.SerializeObject(data);
             hiddenData.Value = jsonData;
             addTOgridview(data);
         }
-
-
-
 
         protected void Cancel_Click(object sender, EventArgs e)
         {
@@ -226,21 +199,20 @@ namespace Cappu
         public void cancel()
         {
             hiddenTotal.Value = "0";
-            inputDisabledEx2.Text = "Total: " + hiddenTotal.Value;
+            inputDisabledEx2.Text = "TOTAL: " + hiddenTotal.Value;
 
-            Dictionary<string, int[]> data = new Dictionary<string, int[]>();
+            Dictionary<string, double[]> data = new Dictionary<string, double[]>();
             string jsonData = JsonConvert.SerializeObject(data);
             hiddenData.Value = jsonData;
-
 
             var dataSource = data.Select(kvp => new GridData { Key = kvp.Key, Quantity = kvp.Value[0], Total = kvp.Value[1] });
             gridView.DataSource = dataSource;
             gridView.DataBind();
         }
 
-        public void AddTotal(int number)
+        public void AddTotal(double number)
         {
-            int total = int.Parse(hiddenTotal.Value);
+            double total = double.Parse(hiddenTotal.Value);
 
             // Update the total value
             total += number;
@@ -249,17 +221,14 @@ namespace Cappu
             hiddenTotal.Value = total.ToString();
 
             // Update the displayed total value
-            inputDisabledEx2.Text = "Total: " + total.ToString();
+            inputDisabledEx2.Text = "TOTAL: " + total.ToString("N2");
         }
 
-        
-
-
-        public void addTOgridview(Dictionary<string, int[]> data = null)
+        public void addTOgridview(Dictionary<string, double[]> data = null)
         {
             if (data != null)
             {
-                var dataSource = data.Select(kvp => new GridData { Key = kvp.Key, Quantity = kvp.Value[0], Total = kvp.Value[1] });
+                var dataSource = data.Select(kvp => new GridData { Key = kvp.Key, Quantity = (int)kvp.Value[0], Total = (int)kvp.Value[1] });
                 gridView.DataSource = dataSource;
                 gridView.DataBind();
             }
@@ -267,16 +236,13 @@ namespace Cappu
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-
-
-            Dictionary<string, int[]> data = JsonConvert.DeserializeObject<Dictionary<string, int[]>>(hiddenData.Value);
+            Dictionary<string, double[]> data = JsonConvert.DeserializeObject<Dictionary<string, double[]>>(hiddenData.Value);
             randomGenerator rand = new randomGenerator();
 
-           
-                if (data.Count == 0)
-                {
-                    Response.Write("<script>alert('No values to submit');</script>");
-                }
+            if (data.Count == 0)
+            {
+                Response.Write("<script>alert('No values to submit');</script>");
+            }
             else
             {
                 string randum = rand.GenerateRandomOrderId();
@@ -287,40 +253,27 @@ namespace Cappu
                     order.ExecuteNonQuery(query);
                 }
 
-
-                foreach (KeyValuePair<string, int[]> pair in data)
+                foreach (KeyValuePair<string, double[]> pair in data)
                 {
                     string proName = pair.Key;
-                    int[] value = pair.Value;
-                    int quantity = value[0];
-                    int total = value[1];
-
+                    double[] value = pair.Value;
+                    int quantity = (int)value[0];
+                    int total = (int)value[1];
 
                     using (Order order = new Order())
                     {
-
                         string querytrans = string.Format("INSERT INTO transactions VALUES('{0}','{1}',{2},{3})", randum, proName, quantity, total);
                         order.ExecuteNonQuery(querytrans);
                     }
                 }
             }
-                 
-         
-          
 
             cancel();
-            
-
         }
 
         protected void History_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/history.aspx");
-;        }
+        }
     }
 }
-
-
-
-
-    
