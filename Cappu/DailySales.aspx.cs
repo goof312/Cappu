@@ -40,11 +40,13 @@ namespace Cappu
 
             using (Order order = new Order())
             {
+
+                string date = DateTime.Parse(TextBox2.Text).ToString("MM-dd-yy") + " 23:59:59";
                 query = string.Format("SELECT t.order_id, o.order_date, t.product_name, t.quantity, t.total " +
                        "FROM orders AS o " +
                        "INNER JOIN transactions AS t ON o.order_id = t.order_id " +
-                       "WHERE order_date = '{0}' " +
-                       "ORDER BY o.order_date DESC", TextBox2.Text);
+                       "WHERE order_date >= '{0}' and order_date < '{1}'" +
+                       "ORDER BY o.order_date DESC", TextBox2.Text, date);
                 GridView2.DataSource = (order.ExecuteReader(query));
                 GridView2.DataBind();
 
@@ -87,8 +89,6 @@ namespace Cappu
             {
                 GridView2.DataSource = order.ExecuteReader(string.Format("SELECT t.order_id, o.order_date,t.product_name, t.quantity, t.total FROM orders as o INNER JOIN transactions as t ON o.order_id = t.order_id WHERE o.order_date >= '{0}' AND o.order_date <= '{1}' ORDER BY o.order_date DESC",date, today ));
                 GridView2.DataBind();
-
-               
             }
             query = string.Format("SELECT SUM(total) as TotalSum FROM orders INNER JOIN transactions ON orders.order_id = transactions.order_id WHERE  order_date >= '{0}' AND order_date <= '{1}'", date, today);
             compute_sum(query);
