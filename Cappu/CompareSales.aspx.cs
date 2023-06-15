@@ -31,9 +31,9 @@ namespace Cappu
             query = queryMe(date2.ToString("MM-dd-yy"));
             show_data(query, GridView2);
 
-            query = string.Format("SELECT SUM(total) as TotalSum FROM orders INNER JOIN transactions ON orders.order_id = transactions.order_id WHERE order_date = '{0}'", date1.ToString("MM-dd-yy"));
+            query = string.Format("SELECT CAST(SUM(total) AS DECIMAL(10, 2)) as TotalSum FROM orders INNER JOIN transactions ON orders.order_id = transactions.order_id WHERE order_date = '{0}'", date1.ToString("MM-dd-yy"));
             decimal tot = total(query, TextBox3);
-            query= string.Format("SELECT SUM(total) as TotalSum FROM orders INNER JOIN transactions ON orders.order_id = transactions.order_id WHERE order_date = '{0}'", date2.ToString("MM-dd-yy"));
+            query= string.Format("SELECT CAST(SUM(total) AS DECIMAL(10, 2)) as TotalSum FROM orders INNER JOIN transactions ON orders.order_id = transactions.order_id WHERE order_date = '{0}'", date2.ToString("MM-dd-yy"));
             decimal tot1 = total(query, TextBox4);
             TextBox5.Text = (tot - tot1).ToString();
 
@@ -41,7 +41,7 @@ namespace Cappu
         }
         protected string queryMe(string change)
         {
-            return string.Format("SELECT t.order_id, o.order_date, t.product_name, t.quantity, t.total " +
+            return string.Format("SELECT t.order_id, o.order_date, t.product_name, t.quantity, CAST(t.total AS DECIMAL(10, 2)) as total " +
                        "FROM orders AS o " +
                        "INNER JOIN transactions AS t ON o.order_id = t.order_id " +
                        "WHERE order_date = '{0}' " +

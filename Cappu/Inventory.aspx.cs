@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace Cappu
 {
     public partial class Inventory : System.Web.UI.Page
@@ -30,7 +31,7 @@ namespace Cappu
         {
             using (Order order = new Order())
             {
-                GridView1.DataSource = (order.ExecuteReader("SELECT  o.order_id, o.order_date,SUM(t.total) as totalAmount FROM orders as o INNER JOIN transactions as t ON o.order_id = t.order_id  GROUP BY o.order_id, o.order_date ORDER BY order_date DESC"));
+                GridView1.DataSource = (order.ExecuteReader("SELECT  o.order_id, o.order_date, CAST(SUM(t.total) AS DECIMAL(10, 2)) as totalAmount FROM orders as o INNER JOIN transactions as t ON o.order_id = t.order_id  GROUP BY o.order_id, o.order_date ORDER BY order_date DESC"));
                 GridView1.DataBind();
        
 
@@ -62,6 +63,7 @@ namespace Cappu
 
                 // Rebind the GridView to reflect the updated data
                 GridView1.DataSource = order.ExecuteReader("SELECT  o.order_id, o.order_date,SUM(t.total) as totalAmount FROM orders as o INNER JOIN transactions as t ON o.order_id = t.order_id  GROUP BY o.order_id, o.order_date ORDER BY order_date DESC");
+               
                 GridView1.DataBind();
 
 
