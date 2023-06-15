@@ -27,7 +27,8 @@
 
                         <asp:TemplateField HeaderText="Delete">
                             <ItemTemplate>
-                                 <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CommandArgument='<%# Eval("order_id") %>' />
+
+                                 <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this item?');"  OnClick="btnDelete_Click" CommandArgument='<%# Eval("order_id") %>' />
               
     
                             
