@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="DailySales.aspx.cs" Inherits="Cappu.DailySales" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
     <style>
         .gridview-table {
             border-collapse: collapse;
@@ -29,6 +37,20 @@
         }
         
     </style>
+    
+
+
+  <script>
+      $(document).ready(function () {
+          $('#GridView2').DataTable({
+              dom: 'Bfrtip',
+              buttons: [
+                  'copy', 'csv', 'excel', 'pdf', 'print', 'colvis'
+              ]
+          });
+      });
+  </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
@@ -74,9 +96,17 @@
 
         <div class="m-5">
             <span class="me-4">
-                <asp:Label ID="Label1" runat="server" Text="Total:"></asp:Label></span><span><asp:TextBox ID="TextBox1" runat="server" Enabled="False" CssClass="text-center"></asp:TextBox></span>
-
+                <asp:Label ID="Label1" runat="server" Text="Total:"></asp:Label></span><span><asp:TextBox ID="TextBox1" runat="server" Enabled="False" CssClass="text-center"></asp:TextBox>
+            <br />
+            </span>
         </div>
+        <div>
+
+            <div>
+                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Convert to excel</asp:LinkButton>
+            </div>
+
+            </div>
     </form>
 
 

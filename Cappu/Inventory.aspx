@@ -16,7 +16,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
         <div>
-   
+               
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 
@@ -37,7 +37,12 @@
                     </Columns>
                 </asp:GridView>
             </div>
-
+            
         </div>
+        <div>
+
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="excel" />
+
+            </div>
     </form>
 </asp:Content>

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Cappu
 {
@@ -95,6 +96,25 @@ namespace Cappu
             }
             query = string.Format("SELECT CAST(SUM(total) AS DECIMAL(10, 2)) as TotalSum FROM orders INNER JOIN transactions ON orders.order_id = transactions.order_id WHERE  order_date >= '{0}' AND order_date <= '{1}'", date, today);
             compute_sum(query);
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/ms-excel";
+            Response.AddHeader("content-disposition", "attachment; filename=UserInfo.xls");
+            Response.Charset = "";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            GridView2.RenderControl(htw);
+            Response.Output.Write(sw.ToString());
+            Response.End();
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+
         }
     }
 }
